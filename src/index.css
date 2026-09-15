@@ -1,0 +1,105 @@
+:root {
+  --quadra: #f7f5f2;
+  --linha: #16181d;
+  --bola: #c8622a;
+  --tabela: #ffffff;
+  --sombra: rgba(22, 24, 29, 0.14);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--quadra);
+  color: var(--linha);
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  border-bottom: 3px solid var(--linha);
+  padding-bottom: 20px;
+  margin-bottom: 48px;
+}
+
+.header__titulo {
+  margin: 0;
+  font-family: 'Archivo Black', 'Archivo', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Galeria ---------- */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  background-color: var(--tabela);
+  border: 2px solid var(--linha);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 6px 6px 0 var(--sombra);
+}
+
+.card__moldura {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--quadra);
+}
+
+.card__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card__iniciais {
+  display: none; /* aparece só quando a imagem falha */
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 2.75rem;
+  color: var(--bola);
+}
+
+.card__nome {
+  margin: 16px 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 32px 18px 56px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
